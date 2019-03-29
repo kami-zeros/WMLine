@@ -56,6 +56,16 @@
       transition: all 1.0s;
     }
 
+    .logo {
+      -webkit-box-shadow: 0 0 19px #fff;
+      transform: rotate(360deg);
+      -ms-transform: rotate(360deg); /* IE 9 */
+      -moz-transform: rotate(360deg); /* Firefox */
+      -webkit-transform: rotate(360deg); /* Safari 和 Chrome */
+      -o-transform: rotate(360deg); /* Opera */
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+
     #logo:hover {
       box-shadow: 0 0 10px #fff;
       -webkit-box-shadow: 0 0 19px #fff;
@@ -98,8 +108,12 @@
   </style>
 
   <script type="text/javascript">
-    window.unload=function () {
-      document.getElementById('#logo').addEventListener("touchstart", touchStart, false);
+    window.unload = function () {
+      var myImg = document.getElementById('#logo');
+
+      myImg.addEventListener("touchstart", touchStart, function () {
+        myImg.addClass('logo');
+      });
     }
   </script>
 
@@ -113,8 +127,8 @@
     <img src="./assets/mm.jpg" id="logo">
     <!--<img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" id="logo">-->
     <!--<img-->
-        <!--src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553855403528&di=5db5c999ba70cd802b62fb9e66e5edd9&imgtype=0&src=http%3A%2F%2Fimg3.doubanio.com%2Fview%2Fcommodity_story%2Fmedium%2Fpublic%2Fp13185271.jpg"-->
-        <!--id="logo">-->
+    <!--src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553855403528&di=5db5c999ba70cd802b62fb9e66e5edd9&imgtype=0&src=http%3A%2F%2Fimg3.doubanio.com%2Fview%2Fcommodity_story%2Fmedium%2Fpublic%2Fp13185271.jpg"-->
+    <!--id="logo">-->
   </div>
   <canvas class="canvas" width="1820" height="905"></canvas>
 
@@ -125,10 +139,11 @@
   </p>
 
   <!--<embed  preload="auto" autostart=true hidden="true"-->
-      <!--src="http://m10.music.126.net/20190329205824/057ff871f351ab2b815f7b11b56f1d7a/ymusic/5553/5508/065b/b93add1c9cbbf05598ef11388ddfd709.mp3"-->
-       <!--autoplay></audio>-->
+  <!--src="http://m10.music.126.net/20190329205824/057ff871f351ab2b815f7b11b56f1d7a/ymusic/5553/5508/065b/b93add1c9cbbf05598ef11388ddfd709.mp3"-->
+  <!--autoplay></audio>-->
 
-  <embed hidden="true" src="http://music.163.com/song/media/outer/url?id=1340836013.mp3" starttime="00:08" autoplay></embed>
+  <embed hidden="true" src="http://music.163.com/song/media/outer/url?id=1340836013.mp3" starttime="00:08"
+         autoplay></embed>
 
   <!--<audio src="http://music.163.com/song/media/outer/url?id=1340836013.mp3" onplay="this.currentTime=5" preload="auto" autoplay></audio>-->
 
@@ -161,7 +176,8 @@
         S.Drawing.init('.canvas');
         document.body.classList.add('body--ready');
         //想说的话
-        S.UI.simulate("Eva|I'm|Wali|Nice|to|Meet|You|#countdown 3|#time");
+        // S.UI.simulate("Eva|I'm|Wali|Nice|to|Meet|You|#countdown 3|#time");
+        S.UI.simulate("💗|amber|💗|Happy|Every|Day|#countdown 3|#time");
         S.Drawing.loop(function () {
           S.Shape.render();
         });
