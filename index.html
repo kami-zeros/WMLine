@@ -97,6 +97,12 @@
     }
   </style>
 
+  <script type="text/javascript">
+    window.unload=function () {
+      document.getElementById('#logo').addEventListener("touchstart", touchStart, false);
+    }
+  </script>
+
 </head>
 
 <body>
