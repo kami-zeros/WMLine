@@ -109,11 +109,12 @@
 
   <script type="text/javascript">
     window.unload = function () {
-      var myImg = document.getElementById('#logo');
+      document.getElementById('#logo').addEventListener("touchstart", touchStart, false);
 
-      myImg.addEventListener("touchstart", touchStart, function () {
-        myImg.addClass('logo');
-      });
+      function touchStart(event) {
+        console.log("------");
+        $(this).addClass("logo");
+      }
     }
   </script>
 
@@ -177,7 +178,7 @@
         document.body.classList.add('body--ready');
         //想说的话
         // S.UI.simulate("Eva|I'm|Wali|Nice|to|Meet|You|#countdown 3|#time");
-        S.UI.simulate("💗|amber|💗|Happy|Every|Day|#countdown 3|#time");
+        S.UI.simulate("💗|Amber|💗|Happy|Every|Day|#countdown 3|#time");
         S.Drawing.loop(function () {
           S.Shape.render();
         });
